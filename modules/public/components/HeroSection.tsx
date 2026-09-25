@@ -11,9 +11,9 @@ import Link from "next/link";
 
 // TODO: reemplazar con datos reales
 const STATS = [
-  { icon: Users, label: "Equipos", value: "16" },
-  { icon: Crosshair, label: "Jugadores", value: "80+" },
-  { icon: Trophy, label: "Prize Pool", value: "$500K" },
+  { icon: Users, label: "Equipos", value: "8" },
+  { icon: Crosshair, label: "Jugadores", value: "50+" },
+  { icon: Trophy, label: "Prize Pool", value: "$300K" },
 ];
 
 const NEXT_MATCH = {
@@ -87,7 +87,7 @@ export default function HeroSection() {
           {/* CTAs */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/equipos/inscripcion"
+              href="https://docs.google.com/forms/d/e/1FAIpQLScu-xZBoxtdrlhufSbv9_BvJ4RbIkLcQ5VGm4Qouxn8kYSGeQ/viewform?usp=sharing&ouid=110350065218398989575"
               className="group inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-red-900/30 transition hover:bg-red-500 hover:shadow-red-900/50"
             >
               <Flame size={17} />
@@ -99,7 +99,7 @@ export default function HeroSection() {
             </Link>
 
             <Link
-              href="/enfrentamientos"
+              href="/Enfrentamientos"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:border-zinc-600 hover:bg-zinc-800"
             >
               <Calendar size={16} className="text-zinc-400" />
@@ -193,7 +193,7 @@ export default function HeroSection() {
                     Top posiciones
                   </span>
                   <Link
-                    href="/posiciones"
+                    href="/Posiciones"
                     className="text-[10px] font-semibold uppercase tracking-wider text-red-400 hover:text-red-300"
                   >
                     Ver todo
@@ -231,7 +231,7 @@ export default function HeroSection() {
                 </ul>
 
                 <Link
-                  href="/posiciones"
+                  href="/Posiciones"
                   className="mt-3 flex items-center justify-center gap-1 rounded-lg border border-zinc-800 px-3 py-2 text-xs font-semibold text-zinc-300 transition hover:border-zinc-700 hover:bg-zinc-900 hover:text-white"
                 >
                   Tabla completa

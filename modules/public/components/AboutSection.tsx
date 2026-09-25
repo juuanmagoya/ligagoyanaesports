@@ -23,7 +23,7 @@ type Stat = {
 const stats: Stat[] = [
   {
     label: "Equipos",
-    value: "10+",
+    value: "8",
     icon: Users,
   },
   {
@@ -33,7 +33,7 @@ const stats: Stat[] = [
   },
   {
     label: "Enfrentamientos",
-    value: "20+",
+    value: "Todos contra Todos",
     icon: Swords,
   },
   {
@@ -125,7 +125,7 @@ export default function AboutSection() {
 
             {/* CTA sutil */}
             <Link
-              href="/equipos"
+              href="/Equipos"
               className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-red-400 transition hover:text-red-300"
             >
               Conocé los equipos

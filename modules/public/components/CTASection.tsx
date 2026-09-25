@@ -48,7 +48,7 @@ const benefits = [
   },
   {
     icon: Calendar,
-    text: "Partidos programados y transmitidos por la liga",
+    text: "Solo los mejores 4 avanzan a la siguiente fase, ¡no hay lugar para todos!",
   },
   {
     icon: Users,
@@ -56,14 +56,14 @@ const benefits = [
   },
   {
     icon: Sparkles,
-    text: "Premios para los mejores equipos de la temporada",
+    text: "Premios para el mejor equipo de la temporada",
   },
 ];
 
 const INSCRIPTION = {
-  slotsTotal: 16,
-  slotsTaken: 11,
-  deadline: "15 de Diciembre",
+  slotsTotal: 8,
+  slotsTaken: 5,
+  deadline: "Hasta agotar cupo",
 };
 
 export default function CTASection() {
@@ -144,7 +144,7 @@ export default function CTASection() {
               {/* CTAs */}
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/equipos/inscripcion"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScu-xZBoxtdrlhufSbv9_BvJ4RbIkLcQ5VGm4Qouxn8kYSGeQ/viewform?usp=sharing&ouid=110350065218398989575"
                   className="group inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-red-900/40 transition hover:bg-red-500 hover:shadow-red-900/60"
                 >
                   Inscribir mi equipo
@@ -155,7 +155,7 @@ export default function CTASection() {
                 </Link>
 
                 <Link
-                  href="/equipos"
+                  href="/Equipos"
                   className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900/50 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-zinc-600 hover:bg-zinc-800"
                 >
                   <Swords size={16} className="text-zinc-400" />
@@ -217,7 +217,7 @@ export default function CTASection() {
               <div className="mt-5">
                 <div className="h-2 w-full overflow-hidden rounded-full bg-zinc-800">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-red-600 to-orange-500 transition-all duration-500"
+                    className="h-full rounded-full bg-linear-to-r from-red-600 to-orange-500 transition-all duration-500"
                     style={{ width: `${slotsPercent}%` }}
                   />
                 </div>
@@ -241,7 +241,7 @@ export default function CTASection() {
               </p>
 
               <a
-                href="https://instagram.com/"
+                href="https://www.instagram.com/goyaesports?stkn=MTFjbzF6cWg3eGlmbw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group mt-4 flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/50 p-3 transition hover:border-zinc-700 hover:bg-zinc-900"
@@ -251,7 +251,7 @@ export default function CTASection() {
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-semibold text-white">
-                    @ligagoyana
+                    @goyaesports
                   </p>
                   <p className="text-xs text-zinc-500">
                     Novedades y highlights
@@ -268,11 +268,11 @@ export default function CTASection() {
             <div className="rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-950 to-zinc-900/40 p-6">
               <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-zinc-500">
                 <Sparkles size={12} className="text-red-500" />
-                Sin costo de inscripción
+                Paga la inscripción y jugá
               </div>
               <p className="mt-3 text-sm text-zinc-400">
-                Anotar tu equipo es{" "}
-                <span className="font-semibold text-white">gratis</span>.
+                Anota a tu equipo es{" "}
+                <span className="font-semibold text-white">y convertite en el ganador</span>.
                 Solo necesitás 5 jugadores y muchas ganas de competir.
               </p>
             </div>
