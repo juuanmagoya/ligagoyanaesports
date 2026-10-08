@@ -62,7 +62,7 @@ const benefits = [
 
 const INSCRIPTION = {
   slotsTotal: 8,
-  slotsTaken: 5,
+  slotsTaken: 7,
   deadline: "Hasta agotar cupo",
 };
 

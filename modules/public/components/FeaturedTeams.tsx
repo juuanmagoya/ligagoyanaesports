@@ -1,69 +1,28 @@
 import {
   ArrowRight,
   Trophy,
-  Flame,
   Shield,
   ChevronRight,
-  type LucideIcon,
+  Flame,
 } from "lucide-react";
 import Link from "next/link";
 
-// ===== Tipos =====
-type Team = {
-  name: string;
-  tag: string;
-  slug: string;
-  wins: number;
-  losses: number;
-  streak: number; // victorias consecutivas
-  rank: number;
+import type { HomeFeaturedTeam } from "../home/types/home.types";
+
+interface FeaturedTeamsProps {
+  teams: HomeFeaturedTeam[];
+}
+
+// Calcula el porcentaje de victorias del equipo.
+const winrate = (wins: number, matchesPlayed: number) => {
+  if (matchesPlayed === 0) {
+    return 0;
+  }
+
+  return Math.round((wins / matchesPlayed) * 100);
 };
 
-// ===== Datos (reemplazar con reales) =====
-const teams: Team[] = [
-  {
-    name: "Goya Snipers",
-    tag: "GYS",
-    slug: "goya-snipers",
-    wins: 12,
-    losses: 1,
-    streak: 5,
-    rank: 1,
-  },
-  {
-    name: "Corrientes Five",
-    tag: "CIF",
-    slug: "corrientes-five",
-    wins: 10,
-    losses: 3,
-    streak: 2,
-    rank: 2,
-  },
-  {
-    name: "Fenix GG",
-    tag: "FNX",
-    slug: "fenix-gg",
-    wins: 8,
-    losses: 5,
-    streak: 1,
-    rank: 3,
-  },
-  {
-    name: "Río Paraná",
-    tag: "RPA",
-    slug: "rio-parana",
-    wins: 7,
-    losses: 6,
-    streak: 0,
-    rank: 4,
-  },
-];
-
-// ===== Helpers =====
-const winrate = (w: number, l: number) =>
-  Math.round((w / (w + l)) * 100);
-
-// Acento visual por rank (para el avatar y el borde)
+// Define el estilo visual de cada equipo según su posición.
 const getRankStyle = (rank: number) => {
   switch (rank) {
     case 1:
@@ -74,6 +33,7 @@ const getRankStyle = (rank: number) => {
         icon: Trophy,
         label: "Líder",
       };
+
     case 2:
       return {
         ring: "ring-zinc-300/30",
@@ -82,6 +42,7 @@ const getRankStyle = (rank: number) => {
         icon: Shield,
         label: "2°",
       };
+
     case 3:
       return {
         ring: "ring-orange-500/30",
@@ -90,6 +51,7 @@ const getRankStyle = (rank: number) => {
         icon: Shield,
         label: "3°",
       };
+
     default:
       return {
         ring: "ring-zinc-700/40",
@@ -101,7 +63,9 @@ const getRankStyle = (rank: number) => {
   }
 };
 
-export default function FeaturedTeams() {
+export default function FeaturedTeams({
+  teams,
+}: FeaturedTeamsProps) {
   return (
     <section className="relative overflow-hidden border-b border-zinc-800 bg-zinc-950">
       {/* Glow sutil */}
@@ -110,7 +74,7 @@ export default function FeaturedTeams() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        {/* ===== Header ===== */}
+        {/* Header */}
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-400">
@@ -127,8 +91,8 @@ export default function FeaturedTeams() {
             </h2>
 
             <p className="mt-3 max-w-xl text-zinc-500">
-              Los mejores equipos de la temporada, con su récord actual y
-              racha de victorias en la liga.
+              Los mejores equipos de la temporada, con su récord actual en
+              la liga.
             </p>
           </div>
 
@@ -138,11 +102,13 @@ export default function FeaturedTeams() {
               className="group inline-flex items-center gap-2 text-sm font-semibold text-red-400 transition hover:text-red-300"
             >
               Ver todos los equipos
+
               <ArrowRight
                 size={16}
                 className="transition group-hover:translate-x-0.5"
               />
             </Link>
+
             <Link
               href="/posiciones"
               className="inline-flex items-center gap-2 text-xs font-medium text-zinc-500 transition hover:text-zinc-300"
@@ -153,23 +119,27 @@ export default function FeaturedTeams() {
           </div>
         </div>
 
-        {/* ===== Grid de equipos ===== */}
+        {/* Grid de equipos */}
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {teams.map((team) => {
             const style = getRankStyle(team.rank);
             const BadgeIcon = style.icon;
-            const wr = winrate(team.wins, team.losses);
+
+            const wr = winrate(
+              team.wins,
+              team.matchesPlayed
+            );
 
             return (
               <Link
-                key={team.slug}
-                href={`/equipos/${team.slug}`}
+                key={team.id}
+                href="/equipos"
                 className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 transition hover:-translate-y-1 hover:border-zinc-700 hover:bg-zinc-900/70"
               >
                 {/* Glow al hover */}
                 <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-red-600/0 blur-3xl transition group-hover:bg-red-600/15" />
 
-                {/* ===== Header de card: rank badge ===== */}
+                {/* Header de card */}
                 <div className="relative flex items-start justify-between">
                   <span
                     className={`inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-wider ring-1 ${style.badge}`}
@@ -177,58 +147,71 @@ export default function FeaturedTeams() {
                     <BadgeIcon size={10} />
                     {style.label}
                   </span>
-
-                  {team.streak >= 3 && (
-                    <span className="inline-flex items-center gap-1 rounded-md bg-red-600/10 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-red-400 ring-1 ring-red-600/20">
-                      <Flame size={10} />
-                      {team.streak}W
-                    </span>
-                  )}
                 </div>
 
-                {/* ===== Avatar ===== */}
+                {/* Logo */}
                 <div className="relative mt-5">
                   <div
                     className={`mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br ${style.gradient} ring-2 ${style.ring} transition group-hover:scale-105`}
                   >
-                    <span className="text-2xl font-black tracking-tight text-white">
-                      {team.tag}
-                    </span>
+                    {team.logo_url ? (
+                      <img
+                        src={team.logo_url}
+                        alt={`Logo de ${team.name}`}
+                        className="h-14 w-14 object-contain"
+                      />
+                    ) : (
+                      <span className="text-2xl font-black tracking-tight text-white">
+                        {team.name.charAt(0)}
+                      </span>
+                    )}
                   </div>
                 </div>
 
-                {/* ===== Info del equipo ===== */}
+                {/* Información del equipo */}
                 <div className="relative mt-5 text-center">
                   <h3 className="truncate text-base font-bold text-white">
                     {team.name}
                   </h3>
                 </div>
 
-                {/* ===== Récord ===== */}
+                {/* Récord */}
                 <div className="relative mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-zinc-800 bg-zinc-800">
                   <div className="bg-zinc-950 px-3 py-2 text-center">
                     <p className="text-[9px] font-bold uppercase tracking-wider text-zinc-600">
                       Récord
                     </p>
+
                     <p className="mt-1 text-sm font-black text-white">
-                      <span className="text-emerald-400">{team.wins}</span>
-                      <span className="mx-0.5 text-zinc-700">-</span>
-                      <span className="text-red-400">{team.losses}</span>
+                      <span className="text-emerald-400">
+                        {team.wins}
+                      </span>
+
+                      <span className="mx-0.5 text-zinc-700">
+                        -
+                      </span>
+
+                      <span className="text-red-400">
+                        {team.losses}
+                      </span>
                     </p>
                   </div>
+
                   <div className="bg-zinc-950 px-3 py-2 text-center">
                     <p className="text-[9px] font-bold uppercase tracking-wider text-zinc-600">
                       Winrate
                     </p>
+
                     <p className="mt-1 text-sm font-black text-white">
                       {wr}%
                     </p>
                   </div>
                 </div>
 
-                {/* ===== CTA al hover ===== */}
+                {/* CTA */}
                 <div className="relative mt-4 flex items-center justify-center gap-1 text-xs font-semibold text-zinc-500 transition group-hover:text-red-400">
                   Ver equipo
+
                   <ChevronRight
                     size={12}
                     className="transition group-hover:translate-x-0.5"
