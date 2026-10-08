@@ -268,7 +268,7 @@ export default function HeroSection({
                         </span>
 
                         <span className="text-sm font-bold text-white">
-                          {standing.pts}
+                          {standing.points}
 
                           <span className="ml-1 text-[10px] font-normal uppercase text-zinc-500">
                             pts
