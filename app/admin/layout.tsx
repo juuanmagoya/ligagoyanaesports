@@ -16,11 +16,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
 const navigation = [
-  {
-    name: "Dashboard",
-    href: "/admin/Dashboard",
-    icon: LayoutDashboard,
-  },
+  
   {
     name: "Equipos",
     href: "/admin/Equipos",
