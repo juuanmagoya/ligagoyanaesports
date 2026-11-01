@@ -74,11 +74,11 @@ const pillars = [
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden border-b border-zinc-800 bg-zinc-950">
+    <section className="relative overflow-hidden border-b border-[#f9f9f9]/10 bg-[#1d1d1b]">
       {/* Glow sutil de fondo */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-0 top-1/4 h-64 w-64 rounded-full bg-red-600/5 blur-[120px]" />
-        <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-orange-500/5 blur-[120px]" />
+        <div className="absolute left-0 top-1/4 h-64 w-64 rounded-full bg-[#c2d116]/[0.05] blur-[120px]" />
+        <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-[#c2d116]/[0.04] blur-[120px]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
@@ -86,24 +86,24 @@ export default function AboutSection() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
             {/* Badge */}
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-400">
-              <MapPin size={12} className="text-red-500" />
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#f9f9f9]/10 bg-[#f9f9f9]/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#f9f9f9]/60">
+              <MapPin size={12} className="text-[#c2d116]" />
               Goya · Corrientes
             </div>
 
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-red-500">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#c2d116]">
               La competencia
             </p>
 
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight text-[#f9f9f9] sm:text-4xl lg:text-5xl">
               El esports también
-              <span className="block text-red-500">se juega en Goya</span>
+              <span className="block text-[#c2d116]">se juega en Goya</span>
             </h2>
 
-            <p className="mt-6 text-base leading-7 text-zinc-400">
+            <p className="mt-6 text-base leading-7 text-[#f9f9f9]/65">
               La Liga Goyana de Esports reúne a equipos y jugadores de la
               región para competir al más alto nivel en{" "}
-              <span className="font-semibold text-zinc-200">
+              <span className="font-semibold text-[#f9f9f9]">
                 Counter-Strike 2
               </span>
               . Una competencia pensada para darle a la escena local el
@@ -115,9 +115,9 @@ export default function AboutSection() {
               {features.map((feature) => (
                 <span
                   key={feature}
-                  className="inline-flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-900/60 px-2.5 py-1 text-xs font-medium text-zinc-300"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-[#f9f9f9]/10 bg-[#f9f9f9]/[0.03] px-2.5 py-1 text-xs font-medium text-[#f9f9f9]/75"
                 >
-                  <span className="h-1 w-1 rounded-full bg-red-500" />
+                  <span className="h-1 w-1 rounded-full bg-[#c2d116]" />
                   {feature}
                 </span>
               ))}
@@ -126,7 +126,7 @@ export default function AboutSection() {
             {/* CTA sutil */}
             <Link
               href="/Equipos"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-red-400 transition hover:text-red-300"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#c2d116] transition hover:text-[#d2e326]"
             >
               Conocé los equipos
               <ArrowRight
@@ -138,34 +138,37 @@ export default function AboutSection() {
 
           {/* ====== Bloque 2: Stats ====== */}
           <div className="flex flex-col justify-center">
-            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-800">
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[#f9f9f9]/10 bg-[#f9f9f9]/10">
               {stats.map((stat) => {
                 const Icon = stat.icon;
+
                 return (
                   <div
                     key={stat.label}
-                    className={`relative bg-zinc-950 p-6 transition ${
+                    className={`relative bg-[#1d1d1b] p-6 transition ${
                       stat.accent
-                        ? "bg-gradient-to-br from-red-950/40 to-zinc-950"
+                        ? "bg-linear-to-br from-[#c2d116]/[0.12] to-[#1d1d1b]"
                         : ""
                     }`}
                   >
                     <Icon
                       size={20}
                       className={
-                        stat.accent ? "text-red-500" : "text-zinc-600"
+                        stat.accent
+                          ? "text-[#c2d116]"
+                          : "text-[#f9f9f9]/40"
                       }
                     />
 
                     <p
                       className={`mt-4 text-3xl font-black tracking-tight ${
-                        stat.accent ? "text-red-500" : "text-white"
+                        stat.accent ? "text-[#c2d116]" : "text-[#f9f9f9]"
                       }`}
                     >
                       {stat.value}
                     </p>
 
-                    <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
+                    <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-[#f9f9f9]/45">
                       {stat.label}
                     </p>
                   </div>
@@ -174,8 +177,8 @@ export default function AboutSection() {
             </div>
 
             {/* Caption de los stats */}
-            <p className="mt-4 flex items-center gap-2 text-xs text-zinc-600">
-              <Radio size={12} />
+            <p className="mt-4 flex items-center gap-2 text-xs text-[#f9f9f9]/40">
+              <Radio size={12} className="text-[#c2d116]" />
               Datos de la temporada en curso
             </p>
           </div>
@@ -186,21 +189,21 @@ export default function AboutSection() {
           {pillars.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-zinc-700 hover:bg-zinc-900/70"
+              className="group relative overflow-hidden rounded-2xl border border-[#f9f9f9]/10 bg-[#f9f9f9]/[0.02] p-6 transition hover:border-[#c2d116]/30 hover:bg-[#f9f9f9]/[0.04]"
             >
               {/* Glow al hover */}
-              <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-red-600/0 blur-2xl transition group-hover:bg-red-600/20" />
+              <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#c2d116]/0 blur-2xl transition group-hover:bg-[#c2d116]/[0.12]" />
 
               <div className="relative">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-950">
-                  <Icon size={18} className="text-red-500" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#f9f9f9]/10 bg-[#f9f9f9]/[0.03]">
+                  <Icon size={18} className="text-[#c2d116]" />
                 </div>
 
-                <h3 className="mt-4 text-base font-bold text-white">
+                <h3 className="mt-4 text-base font-bold text-[#f9f9f9]">
                   {title}
                 </h3>
 
-                <p className="mt-2 text-sm leading-6 text-zinc-400">
+                <p className="mt-2 text-sm leading-6 text-[#f9f9f9]/60">
                   {description}
                 </p>
               </div>

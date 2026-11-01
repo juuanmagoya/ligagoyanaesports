@@ -13,34 +13,37 @@ interface PublicMatchesProps {
 }
 
 export default function PublicMatches({ matches }: PublicMatchesProps) {
-  const [selectedDateId, setSelectedDateId] = useState<string | null>(
-    null
-  );
+  const [selectedDateId, setSelectedDateId] = useState<string | null>(null);
 
   const dates = useMemo(() => {
     const uniqueDates = new Map<string, { id: string; name: string }>();
+
     matches.forEach((match) => {
       uniqueDates.set(match.date.id, match.date);
     });
+
     return Array.from(uniqueDates.values());
   }, [matches]);
 
   const countsByDate = useMemo(() => {
     const counts: Record<string, number> = {};
+
     matches.forEach((match) => {
       counts[match.date.id] = (counts[match.date.id] ?? 0) + 1;
     });
+
     return counts;
   }, [matches]);
 
   const filteredMatches = useMemo(() => {
     if (selectedDateId === null) return matches;
+
     return matches.filter((match) => match.date.id === selectedDateId);
   }, [matches, selectedDateId]);
 
   return (
     <div className="space-y-6">
-      {/* ===== Filtros ===== */}
+      {/* Filtros */}
       <DateFilter
         dates={dates}
         selectedDateId={selectedDateId}
@@ -49,44 +52,44 @@ export default function PublicMatches({ matches }: PublicMatchesProps) {
         countsByDate={countsByDate}
       />
 
-      {/* ===== Contador de resultados ===== */}
-      <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
-        <span className="h-1 w-1 rounded-full bg-red-500" />
+      {/* Contador de resultados */}
+      <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-[#c2d116]">
+        <span className="size-1 rounded-full bg-[#c2d116]" />
+
         {filteredMatches.length}{" "}
         {filteredMatches.length === 1
           ? "enfrentamiento"
           : "enfrentamientos"}
+
         {selectedDateId !== null && (
-          <span className="text-zinc-600">
-            ·{" "}
-            {dates.find((d) => d.id === selectedDateId)?.name}
+          <span className="text-[#f9f9f9]/60">
+            · {dates.find((date) => date.id === selectedDateId)?.name}
           </span>
         )}
       </div>
 
-      {/* ===== Lista o empty state ===== */}
+      {/* Lista o estado vacío */}
       {filteredMatches.length === 0 ? (
-        <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-linear-to-br from-zinc-900/40 to-zinc-950 px-6 py-14 text-center">
-          <div className="pointer-events-none absolute -top-20 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-red-600/10 blur-3xl" />
+        <div className="relative overflow-hidden rounded-2xl border border-[#f9f9f9]/10 bg-linear-to-br from-[#1d1d1b] to-[#111110] px-6 py-14 text-center">
+          <div className="pointer-events-none absolute -top-20 left-1/2 size-48 -translate-x-1/2 rounded-full bg-[#c2d116]/10 blur-3xl" />
 
           <div className="relative">
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900">
-              <Swords className="h-6 w-6 text-zinc-600" />
+            <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl border border-[#f9f9f9]/10 bg-[#1d1d1b]">
+              <Swords className="size-6 text-[#c2d116]/60" />
             </div>
 
-            <h3 className="text-sm font-bold text-white">
+            <h3 className="text-sm font-bold text-[#f9f9f9]">
               No hay enfrentamientos para esta fecha
             </h3>
 
-            <p className="mx-auto mt-1 max-w-sm text-xs text-zinc-500">
-              Probá con otra fecha o mirá todos los partidos de la
-              liga.
+            <p className="mx-auto mt-1 max-w-sm text-xs text-[#f9f9f9]/50">
+              Probá con otra fecha o mirá todos los partidos de la liga.
             </p>
 
             <button
               type="button"
               onClick={() => setSelectedDateId(null)}
-              className="mt-5 inline-flex items-center gap-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 px-4 py-2 text-xs font-semibold text-zinc-300 transition hover:border-zinc-700 hover:bg-zinc-900 hover:text-white"
+              className="mt-5 inline-flex items-center gap-1.5 rounded-lg border border-[#f9f9f9]/15 bg-[#1d1d1b]/80 px-4 py-2 text-xs font-semibold text-[#f9f9f9] transition-colors hover:border-[#c2d116]/50 hover:bg-[#c2d116]/10 hover:text-[#c2d116]"
             >
               Ver todos los enfrentamientos
             </button>

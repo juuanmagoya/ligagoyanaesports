@@ -44,8 +44,6 @@ const navigation = [
   { name: "Posiciones", href: "/Posiciones", icon: Trophy },
 ];
 
-
-
 export default function PublicNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -67,11 +65,10 @@ export default function PublicNavbar() {
     <header
       className={`sticky top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "border-zinc-800/80 bg-zinc-950/95 shadow-lg shadow-black/40 backdrop-blur-xl"
-          : "border-transparent bg-zinc-950/70 backdrop-blur-md"
+          ? "border-[#f9f9f9]/10 bg-[#1d1d1b]/95 shadow-lg shadow-black/20 backdrop-blur-xl"
+          : "border-transparent bg-[#1d1d1b]/70 backdrop-blur-md"
       }`}
     >
-
       {/* Barra principal */}
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link
@@ -79,16 +76,16 @@ export default function PublicNavbar() {
           className="group flex items-center gap-3"
           aria-label="Liga Goyana de CS2 - Inicio"
         >
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-red-500 to-red-700 shadow-lg shadow-red-900/40 ring-1 ring-red-500/40 transition group-hover:scale-105">
-            <Gamepad2 size={20} className="text-white" />
-            <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-zinc-950" />
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-[#c2d116] to-[#8f9b0b] shadow-lg shadow-[#c2d116]/10 ring-1 ring-[#c2d116]/40 transition group-hover:scale-105">
+            <Gamepad2 size={20} className="text-[#1d1d1b]" />
+            <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-[#c2d116] ring-2 ring-[#1d1d1b]" />
           </div>
 
           <div className="leading-none">
-            <p className="text-[15px] font-black uppercase tracking-wider text-white">
-              Liga <span className="text-red-500">Goyana</span>
+            <p className="text-[15px] font-black uppercase tracking-wider text-[#f9f9f9]">
+              Liga <span className="text-[#c2d116]">Goyana</span>
             </p>
-            <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-500">
+            <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[#f9f9f9]/40">
               Counter-Strike 2
             </p>
           </div>
@@ -103,13 +100,13 @@ export default function PublicNavbar() {
                 href={item.href}
                 className={`relative rounded-lg px-3.5 py-2 text-sm font-medium transition ${
                   active
-                    ? "text-white"
-                    : "text-zinc-400 hover:bg-zinc-900 hover:text-white"
+                    ? "text-[#f9f9f9]"
+                    : "text-[#f9f9f9]/60 hover:bg-[#f9f9f9]/5 hover:text-[#f9f9f9]"
                 }`}
               >
                 {item.name}
                 {active && (
-                  <span className="absolute inset-x-3 -bottom-[1px] h-0.5 rounded-full bg-red-500" />
+                  <span className="absolute inset-x-3 -bottom-[1px] h-0.5 rounded-full bg-[#c2d116]" />
                 )}
               </Link>
             );
@@ -119,14 +116,14 @@ export default function PublicNavbar() {
         <div className="hidden items-center gap-2 md:flex">
           <Link
             href="/Enfrentamientos"
-            className="flex items-center gap-2 rounded-lg border border-zinc-800 px-3.5 py-2 text-sm font-medium text-zinc-300 transition hover:border-zinc-700 hover:bg-zinc-900 hover:text-white"
+            className="flex items-center gap-2 rounded-lg border border-[#f9f9f9]/10 px-3.5 py-2 text-sm font-medium text-[#f9f9f9]/75 transition hover:border-[#c2d116]/30 hover:bg-[#f9f9f9]/5 hover:text-[#f9f9f9]"
           >
-            <Swords size={14} className="text-red-500" />
+            <Swords size={14} className="text-[#c2d116]" />
             Partidos
           </Link>
           <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLScu-xZBoxtdrlhufSbv9_BvJ4RbIkLcQ5VGm4Qouxn8kYSGeQ/viewform?usp=sharing&ouid=110350065218398989575"
-            className="group flex items-center gap-1.5 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-red-900/30 transition hover:bg-red-500"
+            className="group flex items-center gap-1.5 rounded-lg bg-[#c2d116] px-4 py-2 text-sm font-semibold text-[#1d1d1b] shadow-lg shadow-[#c2d116]/10 transition hover:bg-[#d2e326]"
           >
             Inscribir equipo
             <ChevronRight
@@ -139,7 +136,7 @@ export default function PublicNavbar() {
         <button
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
-          className="rounded-lg p-2 text-zinc-400 transition hover:bg-zinc-900 hover:text-white md:hidden"
+          className="rounded-lg p-2 text-[#f9f9f9]/60 transition hover:bg-[#f9f9f9]/5 hover:text-[#f9f9f9] md:hidden"
           aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={menuOpen}
         >
@@ -149,7 +146,7 @@ export default function PublicNavbar() {
 
       {/* Drawer mobile */}
       <div
-        className={`overflow-hidden border-t border-zinc-800 bg-zinc-950 transition-[max-height,opacity] duration-300 md:hidden ${
+        className={`overflow-hidden border-t border-[#f9f9f9]/10 bg-[#1d1d1b] transition-[max-height,opacity] duration-300 md:hidden ${
           menuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -158,12 +155,12 @@ export default function PublicNavbar() {
           <Link
             href="/enfrentamientos"
             onClick={closeMenu}
-            className="mb-3 flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/60 p-3 transition hover:border-red-600/40"
+            className="mb-3 flex items-center gap-3 rounded-xl border border-[#f9f9f9]/10 bg-[#f9f9f9]/[0.04] p-3 transition hover:border-[#c2d116]/30"
           >
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-red-600/10 ring-1 ring-red-600/30">
-              <Calendar size={16} className="text-red-400" />
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#c2d116]/10 ring-1 ring-[#c2d116]/30">
+              <Calendar size={16} className="text-[#c2d116]" />
             </div>
-            <ChevronRight size={16} className="text-zinc-500" />
+            <ChevronRight size={16} className="text-[#f9f9f9]/40" />
           </Link>
 
           {navigation.map((item) => {
@@ -176,16 +173,19 @@ export default function PublicNavbar() {
                 onClick={closeMenu}
                 className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition ${
                   active
-                    ? "bg-zinc-900 text-white"
-                    : "text-zinc-400 hover:bg-zinc-900 hover:text-white"
+                    ? "bg-[#f9f9f9]/[0.06] text-[#f9f9f9]"
+                    : "text-[#f9f9f9]/60 hover:bg-[#f9f9f9]/[0.04] hover:text-[#f9f9f9]"
                 }`}
               >
                 {Icon && (
-                  <Icon size={18} className={active ? "text-red-500" : ""} />
+                  <Icon
+                    size={18}
+                    className={active ? "text-[#c2d116]" : ""}
+                  />
                 )}
                 {item.name}
                 {active && (
-                  <span className="ml-auto h-1.5 w-1.5 rounded-full bg-red-500" />
+                  <span className="ml-auto h-1.5 w-1.5 rounded-full bg-[#c2d116]" />
                 )}
               </Link>
             );
@@ -194,19 +194,18 @@ export default function PublicNavbar() {
           <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLScu-xZBoxtdrlhufSbv9_BvJ4RbIkLcQ5VGm4Qouxn8kYSGeQ/viewform?usp=sharing&ouid=110350065218398989575"
             onClick={closeMenu}
-            className="mt-3 flex items-center justify-center gap-1.5 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-semibold text-white"
+            className="mt-3 flex items-center justify-center gap-1.5 rounded-lg bg-[#c2d116] px-4 py-3 text-center text-sm font-semibold text-[#1d1d1b] transition hover:bg-[#d2e326]"
           >
             Inscribir equipo
             <ChevronRight size={16} />
           </Link>
 
-          <div className="mt-4 flex items-center justify-center gap-3 border-t border-zinc-900 pt-4">
+          <div className="mt-4 flex items-center justify-center gap-3 border-t border-[#f9f9f9]/10 pt-4">
             <a
               href="https://www.instagram.com/goyaesports?stkn=MTFjbzF6cWg3eGlmbw=="
-
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg p-2 text-zinc-500 transition hover:bg-zinc-900 hover:text-white"
+              className="rounded-lg p-2 text-[#f9f9f9]/45 transition hover:bg-[#f9f9f9]/5 hover:text-[#c2d116]"
               aria-label="Instagram de la Liga Goyana"
             >
               <InstagramIcon size={18} />
