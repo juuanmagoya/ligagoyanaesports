@@ -24,13 +24,13 @@ export function PublicTeams({
     return (
         <>
             {teams.length === 0 ? (
-                <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 px-6 py-16 text-center">
-                    <p className="text-sm text-zinc-500">
+                <div className="rounded-xl border border-[#f9f9f9]/10 bg-[#1d1d1b]/70 px-6 py-12 text-center">
+                    <p className="text-sm text-[#f9f9f9]/50">
                         Todavía no hay equipos registrados.
                     </p>
                 </div>
             ) : (
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 lg:gap-4 2xl:grid-cols-5">
                     {teams.map((team) => (
                         <PublicTeamCard
                             key={team.id}

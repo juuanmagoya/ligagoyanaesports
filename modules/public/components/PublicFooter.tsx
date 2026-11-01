@@ -123,12 +123,12 @@ export default function PublicFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t border-zinc-800 bg-zinc-950">
+    <footer className="relative overflow-hidden border-t border-[#f9f9f9]/10 bg-[#1d1d1b]">
       {/* Glow sutil */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/4 top-0 h-64 w-64 rounded-full bg-red-600/5 blur-[120px]" />
+        <div className="absolute left-1/4 top-0 h-64 w-64 rounded-full bg-[#c2d116]/5 blur-[120px]" />
 
-        <div className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-orange-500/5 blur-[120px]" />
+        <div className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-[#c2d116]/5 blur-[120px]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
@@ -142,24 +142,24 @@ export default function PublicFooter() {
               href="/"
               className="group inline-flex items-center gap-3"
             >
-              <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-red-500 to-red-700 shadow-lg shadow-red-900/40 ring-1 ring-red-500/40 transition group-hover:scale-105">
-                <Gamepad2 size={22} className="text-white" />
+              <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-[#c2d116] to-[#8f9b0b] shadow-lg shadow-[#c2d116]/10 ring-1 ring-[#c2d116]/40 transition group-hover:scale-105">
+                <Gamepad2 size={22} className="text-[#1d1d1b]" />
 
-                <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-zinc-950" />
+                <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-[#c2d116] ring-2 ring-[#1d1d1b]" />
               </div>
 
               <div className="leading-none">
-                <p className="text-base font-black uppercase tracking-wider text-white">
-                  Liga <span className="text-red-500">Goyana</span>
+                <p className="text-base font-black uppercase tracking-wider text-[#f9f9f9]">
+                  Liga <span className="text-[#c2d116]">Goyana</span>
                 </p>
 
-                <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-500">
+                <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[#f9f9f9]/40">
                   Counter-Strike 2
                 </p>
               </div>
             </Link>
 
-            <p className="mt-5 max-w-xs text-sm leading-6 text-zinc-500">
+            <p className="mt-5 max-w-xs text-sm leading-6 text-[#f9f9f9]/50">
               La competencia de esports del litoral. Equipos,
               jugadores y toda la acción de Counter-Strike 2 en
               Goya y la región.
@@ -167,11 +167,11 @@ export default function PublicFooter() {
 
             {/* Badge de temporada */}
 
-            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-xs font-semibold text-zinc-400">
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#f9f9f9]/10 bg-[#f9f9f9]/5 px-3 py-1.5 text-xs font-semibold text-[#f9f9f9]/60">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#c2d116] opacity-75" />
 
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#c2d116]" />
               </span>
 
               Temporada 2026 en curso
@@ -182,7 +182,7 @@ export default function PublicFooter() {
 
           {navSections.map((section) => (
             <div key={section.title}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#f9f9f9]/50">
                 {section.title}
               </p>
 
@@ -194,11 +194,11 @@ export default function PublicFooter() {
                     <Link
                       key={`${section.title}-${item.href}-${item.name}`}
                       href={item.href}
-                      className="group flex items-center gap-2 text-sm text-zinc-500 transition hover:text-white"
+                      className="group flex items-center gap-2 text-sm text-[#f9f9f9]/50 transition hover:text-[#f9f9f9]"
                     >
                       <Icon
                         size={14}
-                        className="text-zinc-700 transition group-hover:text-red-500"
+                        className="text-[#f9f9f9]/25 transition group-hover:text-[#c2d116]"
                       />
 
                       {item.name}
@@ -212,14 +212,14 @@ export default function PublicFooter() {
           {/* ===== Columna 4: Comunidad ===== */}
 
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#f9f9f9]/50">
               Comunidad
             </p>
 
-            <div className="mt-5 flex items-start gap-2.5 text-sm text-zinc-500">
+            <div className="mt-5 flex items-start gap-2.5 text-sm text-[#f9f9f9]/50">
               <MapPin
                 size={14}
-                className="mt-0.5 shrink-0 text-zinc-700"
+                className="mt-0.5 shrink-0 text-[#f9f9f9]/30"
               />
 
               <span>Goya, Corrientes, Argentina</span>
@@ -227,7 +227,7 @@ export default function PublicFooter() {
 
             {/* Redes */}
 
-            <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">
+            <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#f9f9f9]/50">
               Seguinos
             </p>
 
@@ -238,19 +238,19 @@ export default function PublicFooter() {
                 href={social.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 rounded-lg border border-zinc-800 bg-zinc-900/40 px-3 py-2 transition hover:border-zinc-700 hover:bg-zinc-900"
+                className="group flex items-center gap-3 rounded-lg border border-[#f9f9f9]/10 bg-[#f9f9f9]/[0.03] px-3 py-2 transition hover:border-[#c2d116]/30 hover:bg-[#f9f9f9]/[0.06]"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-pink-500 via-red-500 to-amber-500 text-white">
+                <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#c2d116] text-[#1d1d1b]">
                   <InstagramIcon size={15} />
                 </div>
 
-                <span className="flex-1 text-xs font-semibold text-zinc-300 transition group-hover:text-white">
+                <span className="flex-1 text-xs font-semibold text-[#f9f9f9]/70 transition group-hover:text-[#f9f9f9]">
                   {social.instagram.handle}
                 </span>
 
                 <ArrowUpRight
                   size={14}
-                  className="text-zinc-600 transition group-hover:text-white"
+                  className="text-[#f9f9f9]/30 transition group-hover:text-[#c2d116]"
                 />
               </a>
 
@@ -260,19 +260,19 @@ export default function PublicFooter() {
                 href={social.discord.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 rounded-lg border border-zinc-800 bg-zinc-900/40 px-3 py-2 transition hover:border-zinc-700 hover:bg-zinc-900"
+                className="group flex items-center gap-3 rounded-lg border border-[#f9f9f9]/10 bg-[#f9f9f9]/[0.03] px-3 py-2 transition hover:border-[#c2d116]/30 hover:bg-[#f9f9f9]/[0.06]"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#5865F2] text-white">
+                <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#c2d116] text-[#1d1d1b]">
                   <DiscordIcon size={15} />
                 </div>
 
-                <span className="flex-1 text-xs font-semibold text-zinc-300 transition group-hover:text-white">
+                <span className="flex-1 text-xs font-semibold text-[#f9f9f9]/70 transition group-hover:text-[#f9f9f9]">
                   {social.discord.handle}
                 </span>
 
                 <ArrowUpRight
                   size={14}
-                  className="text-zinc-600 transition group-hover:text-white"
+                  className="text-[#f9f9f9]/30 transition group-hover:text-[#c2d116]"
                 />
               </a>
             </div>
@@ -281,31 +281,31 @@ export default function PublicFooter() {
 
         {/* ===== Bottom bar ===== */}
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-zinc-900 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-zinc-600">
+        <div className="mt-14 flex flex-col gap-4 border-t border-[#f9f9f9]/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#f9f9f9]/35">
             <span>
               © {year} Liga Goyana de Esports. Todos los derechos
               reservados.
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-zinc-600">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-[#f9f9f9]/35">
             <span className="flex items-center gap-1.5">
               Hecho con
               <Heart
                 size={10}
-                className="fill-red-500 text-red-500"
+                className="fill-[#c2d116] text-[#c2d116]"
               />
               en Goya
             </span>
 
-            <span className="hidden text-zinc-800 sm:inline">
+            <span className="hidden text-[#f9f9f9]/15 sm:inline">
               |
             </span>
 
             <span>
               Desarrollado por{" "}
-              <span className="font-medium text-zinc-500">
+              <span className="font-medium text-[#f9f9f9]/60">
                 Juan Manuel Aguirre
               </span>
             </span>
